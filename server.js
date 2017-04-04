@@ -5,7 +5,7 @@ const app = express()
 const methodOverride = require('method-override')
 const morgan = require('morgan')
 const bodyParser = require('body-parser')
-// const usersRouter = require('./routes/users');
+const usersRouter = require('./routes/users');
 // const postsRouter = require('./routes/posts');
 // const commentsRouter = require('./routes/comments')
 require('locus');
@@ -26,7 +26,7 @@ app.get('/', function(req, res) {
 });
 
 // routes for all 3 resources
-// app.use('/users', usersRouter);
+app.use('/users', usersRouter);
 // app.use('/posts', postsRouter);
 // app.use('/comments', commentsRouter);
 
