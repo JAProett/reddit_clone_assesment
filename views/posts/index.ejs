@@ -9,15 +9,13 @@
 </head>
 
 <body>
-    <h1>Reddit Clone</h1>
-    <div>
-        <a href="/users">Show all Users</a>
-    </div>
-    <a href="/users/new">Create new user</a>
-    </div>
-    <a href="/posts">Show all Posts</a>
-
-
+    <h1>THIS IS ALL THE Posts!!!!</h1>
+    <ul>
+        <% posts.forEach(function(post){ %>
+            <li>
+                <%= post.post_title %>
+            <% }); %>
+    </ul>
 </body>
 
 </html>
