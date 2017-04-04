@@ -2,12 +2,11 @@
 
 module.exports = {
 
-  development: {
-    client: 'sqlite3',
-    connection: {
-      filename: './dev.sqlite3'
-    }
-  },
+    development: {
+      client: 'pg',
+      connection: 'postgres://localhost/reddit_clone_assesment_db',
+      degug: true
+    },
 
   staging: {
     client: 'postgresql',

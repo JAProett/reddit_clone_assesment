@@ -4,11 +4,13 @@ assessment city
 
 1)Set up and install dependincies which include:
     PG, knex, morgan, express, ejs and body-parser
+    method-override, locus 
+    change to dev enviorment
 2) knex init, npm init
 
 * make .gitgnore file with ds store and node included
 
-3)Create server.js file - import/require dependincies, set up event listener
+3)Create server.js file - import/require dependincies, set up veiw engine for ejs and make an event listener
 
 4)Create database (term: createdb *the database name*)
 
