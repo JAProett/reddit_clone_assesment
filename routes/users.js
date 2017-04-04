@@ -1,12 +1,12 @@
-var express = require("express");
+var express = require('express');
 router = express.Router();
-knex = require("../db/knex")
+knex = require('../db/knex')
 
 router.route('/')
     .post(function(req, res) {
         knex('users')
             .insert({
-                full_name: req.body.user.name,
+                name: req.body.user.name,
                 username: req.body.user.username
             })
             .returning('id')
@@ -25,14 +25,85 @@ router.route('/')
             });
     });
 
-router.route("/new")
+router.route('/new')
     .get((req, res) => {
         res.render('users/new');
     });
 
-router.route("/:id")
-    
+router.route('/:id')
 
+    .delete(function(req, res) {
+        knex('users')
+            .del()
+
+            .where({
+                id: req.params.id
+            })
+            .then(function() {
+                res.redirect(`/users`);
+            })
+
+    })
+
+    .get(function(req, res) {
+        knex('users')
+            .select('id', 'name', 'username')
+            .where({
+                id: req.params.id
+            })
+            .first()
+            .then(function(user) {
+                res.render('users/show', {
+                    user
+                })
+            })
+    })
+
+    .put(function(req, res) {
+        knex('users')
+            .update({
+                name: req.body.user.name,
+                username: req.body.user.username,
+            })
+            .where({
+                id: req.params.id
+            })
+            .then(function() {
+                res.redirect(`/users/${req.params.id}`);
+            });
+    });
+
+router.route('/:id/edit')
+    .get(function(req, res) {
+        knex('users')
+            .select('id', 'name', 'username')
+            .where({
+                id: req.params.id
+            })
+            // limit 1
+            .first()
+            .then(function(user) {
+                // this passes the user to the ejs template
+                res.render('users/edit', {
+                    user
+                });
+            });
+    });
+
+router.route('/:id/delete')
+    .get(function(req, res) {
+        knex('users')
+            .select('id', 'username')
+            .where({
+                id: req.params.id
+            })
+            .first()
+            .then(function(user) {
+                res.render('users/delete', {
+                    user
+                });
+            });
+    });
 
 
 

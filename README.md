@@ -4,7 +4,7 @@ assessment city
 
 1)Set up and install dependincies which include:
     PG, knex, morgan, express, ejs and body-parser
-    method-override, locus 
+    method-override, locus
     change to dev enviorment
 2) knex init, npm init
 
@@ -25,3 +25,5 @@ assessment city
 MAKE FULL CRUD
 
 create routes with .get .put .delete .post
+
+make routs that are able to start from the home screen ("/") like the veiw all users

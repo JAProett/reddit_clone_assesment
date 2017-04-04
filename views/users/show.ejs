@@ -7,9 +7,11 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Delete User</h1>
-    <form action="/users/<%= user.id %>?_method=DELETE" method="POST">
-      <p>Delete? <%= user.username %>?</p>
-      <input type="submit" name="Delete" />
+    <h1>Your Profile</h1>
+    <ul>
+          <li>Name: <%= user.name %></li>
+          <li>Username: <%= user.username %></li>
+
+      </ul>
 </body>
 </html>
